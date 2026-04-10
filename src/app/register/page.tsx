@@ -60,12 +60,12 @@ export default function RegisterPage() {
           </header>
 
           <RegisterForm />
-
-          <footer className="mt-8 text-center">
+          
+          <footer className="mt-8 text-center relative z-20">
             <p className="text-[#adaaaa] text-sm">
               Already have an account?
-              <Link
-                href="/login"
+              <Link 
+                href="/login" 
                 className="text-[#aaffdc] font-semibold hover:text-[#00edb4] transition-colors ml-1"
               >
                 Login
@@ -73,8 +73,6 @@ export default function RegisterPage() {
             </p>
           </footer>
         </div>
-
-        {/* Security badges */}
         <div className="mt-8 flex justify-center space-x-6 text-[#adaaaa]/50">
           <div className="flex items-center space-x-2">
             <span className="material-symbols-outlined text-sm">verified_user</span>

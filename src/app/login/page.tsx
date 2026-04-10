@@ -64,26 +64,6 @@ export default function LoginPage() {
             </div>
 
             <LoginForm />
-
-            {/* Divider */}
-            <div className="flex items-center gap-4 py-2 opacity-60">
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#494847] to-transparent" />
-              <span className="text-[10px] uppercase tracking-widest text-[#adaaaa] font-bold">
-                Or continue with
-              </span>
-              <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#494847] to-transparent" />
-            </div>
-
-            {/* Alt auth buttons */}
-            <div className="grid grid-cols-1 gap-4">
-              <button
-                id="login-google"
-                className="flex items-center justify-center gap-3 bg-white/5 border border-[#494847]/30 hover:border-[#aaffdc]/40 hover:bg-[#aaffdc]/10 hover:-translate-y-0.5 rounded-xl py-3.5 transition-all duration-300 group"
-              >
-                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-semibold tracking-wide text-white">Continue with Google</span>
-              </button>
-            </div>
           </div>
         </div>
       </main>

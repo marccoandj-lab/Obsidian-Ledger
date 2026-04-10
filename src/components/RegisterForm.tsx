@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { auth, db } from '@/lib/firebase/config'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
-import { doc, setDoc } from 'firebase/firestore'
+import { createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 
 export default function RegisterForm() {
   const [fullName, setFullName] = useState('')
@@ -15,6 +15,39 @@ export default function RegisterForm() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const router = useRouter()
+
+  async function handleGoogleSignIn() {
+    try {
+      setLoading(true)
+      setError(null)
+      const provider = new GoogleAuthProvider()
+      const result = await signInWithPopup(auth, provider)
+      
+      if (result.user) {
+        const userRef = doc(db, 'profiles', result.user.uid)
+        const userSnap = await getDoc(userRef)
+        if (!userSnap.exists()) {
+          await setDoc(userRef, {
+            id: result.user.uid,
+            full_name: result.user.displayName || 'Google User',
+            avatar_url: result.user.photoURL || '',
+            current_balance: 100000,
+            currency: 'USD',
+            wins: 0,
+            games_played: 0,
+            total_capital: 100000,
+            character_usage: {},
+            created_at: new Date().toISOString()
+          })
+        }
+      }
+      
+      router.push('/dashboard')
+    } catch (err: any) {
+      setError(err.message)
+      setLoading(false)
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
