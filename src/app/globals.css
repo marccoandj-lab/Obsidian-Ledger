@@ -120,12 +120,6 @@
   --radius-full: 9999px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 html, body {
   height: 100%;
   background-color: var(--surface);
