@@ -75,20 +75,13 @@ export default function LoginPage() {
             </div>
 
             {/* Alt auth buttons */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               <button
-                id="login-biometric"
-                className="flex items-center justify-center gap-2 bg-black/40 border border-[#494847]/30 hover:border-[#aaffdc]/40 hover:bg-[#aaffdc]/5 hover:text-[#aaffdc] hover:-translate-y-0.5 rounded-xl py-3.5 transition-all duration-300"
+                id="login-google"
+                className="flex items-center justify-center gap-3 bg-white/5 border border-[#494847]/30 hover:border-[#aaffdc]/40 hover:bg-[#aaffdc]/10 hover:-translate-y-0.5 rounded-xl py-3.5 transition-all duration-300 group"
               >
-                <span className="material-symbols-outlined text-sm">fingerprint</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Biometric</span>
-              </button>
-              <button
-                id="login-passkey"
-                className="flex items-center justify-center gap-2 bg-black/40 border border-[#494847]/30 hover:border-[#aaffdc]/40 hover:bg-[#aaffdc]/5 hover:text-[#aaffdc] hover:-translate-y-0.5 rounded-xl py-3.5 transition-all duration-300"
-              >
-                <span className="material-symbols-outlined text-sm">key</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Passkey</span>
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-semibold tracking-wide text-white">Continue with Google</span>
               </button>
             </div>
           </div>
